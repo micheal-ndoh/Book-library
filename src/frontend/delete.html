@@ -103,6 +103,20 @@
         .delete-btn:hover {
             background-color: #c0392b;
         }
+
+        .back-button {
+            background-color: #7f8c8d;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #05e6ff;
+        }
     </style>
 </head>
 <body>
@@ -110,6 +124,7 @@
     <input id="bookId" placeholder="Enter Book ID">
     <button onclick="deleteBook()">Delete Book</button>
     <p id="message"></p>
+    <button class="back-button" onclick="window.location.href='index.html'">Back to Add</button>
 
     <script>
         async function deleteBook() {
