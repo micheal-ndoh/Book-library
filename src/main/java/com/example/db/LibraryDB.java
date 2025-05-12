@@ -13,7 +13,7 @@ public class LibraryDB {
     private static int nextId = 1;
 
     static {
-        books.put(nextId++, new Book("Clean Code", "Robert Martin"));
+        books.put(nextId++, new Book("Java in 21 days", "Mr Marco"));
     }
 
     public static List<Book> getAllBooks() {
@@ -24,8 +24,11 @@ public class LibraryDB {
         book.setId(nextId++);
         books.put(book.getId(), book);
     }
-
+    
     public static void deleteBook(int id) {
-        books.remove(id);
+        if (books.containsKey(id)) {
+            books.remove(id);
+        }
     }
+    
 }
