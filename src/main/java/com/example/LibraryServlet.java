@@ -19,19 +19,19 @@ public class LibraryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("application/json");
         PrintWriter out = res.getWriter();
-        out.print(new Gson().toJson(LibraryDB.getAllBooks())); // Requires Gson library
+        out.print(new Gson().toJson(LibraryDB.getAllBooks()));
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         String title = req.getParameter("title");
         String author = req.getParameter("author");
         LibraryDB.addBook(new Book(title, author));
-        res.setStatus(201); // Created
+        res.setStatus(201);
     }
 
     protected void doDelete(HttpServletRequest req, HttpServletResponse res) {
         int id = Integer.parseInt(req.getParameter("id"));
         LibraryDB.deleteBook(id);
-        res.setStatus(204); // No Content
+        res.setStatus(204);
     }
 }
