@@ -1,2 +1,4 @@
 *.class
 /.vscode
+/target
+/apache-tomcat-11.0.6
