@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Book</title>
+    <style>
+        /* Modern, centered layout */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Input form styling */
+        .input-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #68076b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+
+        }
+
+        button:hover {
+            background-color: #a6acb1;
+        }
+
+        button:active {
+            background-color: #00f064;
+        }
+
+        /* Book list styling */
+        #book-list {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .book {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .book-info {
+            flex-grow: 1;
+        }
+
+        .book-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .book-author {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .back-button {
+            background-color: #7f8c8d;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #05e6ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete a Book</h1>
+    <input id="bookId" placeholder="Enter Book ID">
+    <button onclick="deleteBook()">Delete Book</button>
+    <p id="message"></p>
+    <button class="back-button" onclick="window.location.href='index.html'">Back to Add</button>
+
+    <script>
+        async function deleteBook() {
+            const id = document.getElementById('bookId').value;
+            const response = await fetch(`/books?id=${id}`, { method: 'DELETE' });
+            const message = document.getElementById('message');
+            if (response.ok) {
+                message.innerText = 'Book deleted successfully!';
+            } else {
+                message.innerText = 'Error deleting book. Please check the ID.';
+            }
+        }
+    </script>
+</body>
+</html>
