@@ -20,8 +20,10 @@ A simple Java web application to manage books using Servlets for the backend and
 > 📦 Make sure you have **Apache Tomcat** and **Java 8+** installed.
 
 1. Import the project into any Java IDE (e.g., IntelliJ IDEA, vscode).
-2. Deploy the project to Tomcat (e.g., `http://localhost:8080/library-app`).
-3. Make sure the backend is accessible at:
+2. Run `mvn clean install`
+3. Run `mvn tomcat7:run`
+4. Deploy the project to Tomcat (e.g., `http://localhost:8080/library-app`).
+5. Make sure the backend is accessible at:
 
    ```sh
    http://localhost:8080/library-app/books
