@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8080/api/books";
+const API_URL = "http://127.0.0.1:8080/library-app/books";
 
 // Fetch and display books
 async function loadBooks() {
